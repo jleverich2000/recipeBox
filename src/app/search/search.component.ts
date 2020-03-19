@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SearchService } from '../search.service';
 import { FormBuilder } from '@angular/forms';
+import { RecipeListItem } from '../recipe.model';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { FormBuilder } from '@angular/forms';
   providers: [SearchService]
 })
 export class SearchComponent implements OnInit {
-  items;
+  RecipeListItems$: RecipeListItem[];
   searchForm;
 
   constructor(
@@ -28,13 +29,15 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
 
   }
+  
+
   onSubmit(searchTerm) {
     console.log("search componnent")
- 
-    this.items = this.searchService.SearchRecipes(searchTerm);
+    var response = this.searchService.SearchRecipes(searchTerm).subscribe(data => this.RecipeListItems$ = data);
 
+    console.log("****response"+response);
 
-    console.warn('You searched for ', searchTerm);
+    return response;
   }
 
 }

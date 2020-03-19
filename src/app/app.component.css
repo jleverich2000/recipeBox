@@ -1,11 +1,2 @@
 h1 {color: #357951;
     text-align: center;}
-#bar {text-align: center;
-      padding: 10px 150px;
-      }
-input[type=text] {
-        border: 2px solid #000;
-        border-radius: 4px;
-        padding: 10px 150px; 
-      }
-button {padding: 10px 15px; }
