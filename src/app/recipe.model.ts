@@ -1,4 +1,4 @@
 export class RecipeListItem {
-    Name :string;
-    RecipeId: string;
+    name :string;
+    id: string;
 }

@@ -10,8 +10,8 @@ import { RecipeListItem } from './recipe.model';
 export class SearchService {
     recipe: any;
     title = 'recipeBox';
-    apiUrl = 'https://localhost:44320/v1/search?term=foo';
-    constructor(private _http: HttpClient){
+    apiUrl = 'https://localhost:44320/v1/search?term=';
+    constructor(private http: HttpClient){
   
     }
 
@@ -30,10 +30,10 @@ export class SearchService {
 
       };
 
-    public SearchRecipes(word) {
+    public SearchRecipes(term) {
       // console.log("searchservice!!!!")
-      console.log("******************");
-    return this._http.get<RecipeListItem[]>(this.apiUrl);
+      console.log("******************SearchRecipes");
+    return this.http.get<RecipeListItem[]>(this.apiUrl+term);
       }
   
 

@@ -3,8 +3,9 @@
   <input type="text" id="searchTerm" formControlName="searchTerm" placeholder="Search" aria-label="Search" >
   <input type = "submit">
 </form>
+
 <div *ngFor='let item of RecipeListItems$' style="text-align:center">
 
-  <h2>{{item.Name}} - {{item.RecipeId}}</h2>
+  <p>{{item.name}} - {{item.id}} </p>
 
 </div>
