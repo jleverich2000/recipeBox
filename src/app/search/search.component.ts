@@ -33,10 +33,7 @@ export class SearchComponent implements OnInit {
 
   onSubmit(searchTerm) {
 
-    var response = this.searchService.SearchRecipes(searchTerm).subscribe(data => this.RecipeListItems$ = data);
-    console.log("******************response"+response);
-
-    return response;
+    return this.searchService.SearchRecipes(searchTerm).subscribe(data =>this.RecipeListItems$ = data);  
   }
 
 }

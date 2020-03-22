@@ -11,9 +11,8 @@ export class SearchService {
     recipe: any;
     title = 'recipeBox';
     apiUrl = 'https://localhost:44320/v1/search?term=';
-    constructor(private http: HttpClient){
-  
-    }
+
+    constructor(private http: HttpClient){}
 
     headerDict = new HttpHeaders({
         'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
@@ -30,10 +29,8 @@ export class SearchService {
 
       };
 
-    public SearchRecipes(term) {
-      // console.log("searchservice!!!!")
-      console.log("******************SearchRecipes");
-    return this.http.get<RecipeListItem[]>(this.apiUrl+term);
+    public SearchRecipes(searchForm):Observable<RecipeListItem[]> {
+    return  this.http.get<RecipeListItem[]>(this.apiUrl+searchForm.searchTerm);
       }
   
 
