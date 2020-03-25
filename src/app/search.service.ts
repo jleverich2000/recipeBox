@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest, HttpHandler,HttpHeaders, HttpEvent, HttpInterceptor, HttpClientModule, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { RecipeListItem } from './recipe.model';
+import { RecipeListItem, Recipe } from './recipe.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,9 @@ import { RecipeListItem } from './recipe.model';
 export class SearchService {
     recipe: any;
     title = 'recipeBox';
-    apiUrl = 'https://localhost:44320/v1/search?term=';
-
+    apiUrl = 'https://localhost:44320/v1/';
+    searchRoute = "search?term=";
+    recipeRoute = "recipeById?recipeId=7";
     constructor(private http: HttpClient){}
 
     headerDict = new HttpHeaders({
@@ -30,8 +31,14 @@ export class SearchService {
       };
 
     public SearchRecipes(searchForm):Observable<RecipeListItem[]> {
-    return  this.http.get<RecipeListItem[]>(this.apiUrl+searchForm.searchTerm);
+     
+    return  this.http.get<RecipeListItem[]>(this.apiUrl+this.searchRoute+searchForm.searchTerm);
       }
+
+      public GetRecipe(id):Observable<Recipe> {
+     
+        return  this.http.get<Recipe>(this.apiUrl+this.recipeRoute);
+          }
   
 
  

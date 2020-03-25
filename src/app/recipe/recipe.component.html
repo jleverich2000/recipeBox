@@ -1,0 +1,25 @@
+  <h1>{{Recipe$.name}}</h1>
+
+    <h2>Ingredients</h2>
+
+    <div *ngFor='let item of Recipe$.ingredients'>
+      {{ item.quantity }}{{ item.unitType }} - {{ item.name }}
+    
+    </div>
+
+    <br>
+    <h2>Directions</h2>
+    <div *ngFor='let item of Recipe$.directions'>
+
+
+      <div *ngIf="item.stepNumber == 1" >
+        {{ item.instruction }}
+      </div>
+      <div *ngIf="item.stepNumber == 0" >
+        {{ item.instruction }}
+      </div>
+
+      
+      <!-- {{ item.instruction }} -->
+    </div>
+ 
