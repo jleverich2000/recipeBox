@@ -3,7 +3,7 @@ import { RecipeComponent } from './recipe/recipe.component';
 
 
 export const appRoutes: Routes = [
-    { path: 'recipe', component: RecipeComponent}
+    { path: 'recipe/:id', component: RecipeComponent}
 ];
 
 

@@ -12,7 +12,7 @@ export class SearchService {
     title = 'recipeBox';
     apiUrl = 'https://localhost:44320/v1/';
     searchRoute = "search?term=";
-    recipeRoute = "recipeById?recipeId=7";
+    recipeRoute = "recipeById?recipeId=";
     constructor(private http: HttpClient){}
 
     headerDict = new HttpHeaders({
@@ -37,7 +37,7 @@ export class SearchService {
 
       public GetRecipe(id):Observable<Recipe> {
      
-        return  this.http.get<Recipe>(this.apiUrl+this.recipeRoute);
+        return  this.http.get<Recipe>(this.apiUrl+this.recipeRoute+id);
           }
   
 

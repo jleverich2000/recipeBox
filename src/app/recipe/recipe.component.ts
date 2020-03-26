@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SearchService } from '../search.service';
 import { Recipe, Direction } from '../recipe.model';
-
+import { ActivatedRoute } from '@angular/router'
 @Component({
   selector: 'app-recipe',
   templateUrl: './recipe.component.html',
@@ -13,13 +13,18 @@ import { Recipe, Direction } from '../recipe.model';
 })
 export class RecipeComponent implements OnInit {
   Recipe$: Recipe;
-
-  constructor(    
+  recipeId
+  constructor( 
+    private _Activatedroute:ActivatedRoute,   
     private searchService: SearchService,
     ) { }
 
   ngOnInit() {
-    return this.searchService.GetRecipe(7).subscribe(data =>this.Recipe$ = data);  
+
+    this._Activatedroute.paramMap.subscribe(params => { 
+      this.recipeId = params.get('id'); 
+  });
+    return this.searchService.GetRecipe(this.recipeId).subscribe(data =>this.Recipe$ = data);  
 
   }
 

@@ -7,6 +7,13 @@
 
 <div *ngFor='let item of RecipeListItems$' style="text-align:center">
 
-  <p>{{item.name}} - {{item.id}} </p>
+ 
+  <p>
+    
 
+    <a [routerLink]="['/recipe',item.id]">{{item.name}}</a>
+
+    <!-- <a [routerLink]="['/recipe',recipeId.id]" [queryParams]={recipeId:item.id}>{{item.name}}</a> -->
+
+  </p>
 </div>
