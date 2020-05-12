@@ -1,15 +1,12 @@
-<div>
+<div  class="container">
   <h1>
     Welcome to {{ title }}!
   </h1>
+  <app-search></app-search>
+  {{recipe}}
+  <div class="col-xs-12">
+    <app-save-recipe></app-save-recipe>
+  </div>
 
-{{recipe}}
-
-<app-search></app-search>
-<app-save-recipe></app-save-recipe>
-</div>
-
-
-<div class="container">
   <router-outlet></router-outlet>
 </div>
