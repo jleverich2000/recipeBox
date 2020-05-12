@@ -11,12 +11,14 @@ import { SearchComponent } from './search/search.component';
 import { SearchService } from './search.service';
 import { RecipeComponent } from './recipe/recipe.component';
 import { appRoutes } from './routes';
+import { SaveRecipeComponent } from './save-recipe/save-recipe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     RecipeComponent,
+    SaveRecipeComponent,
   ],
   imports: [
     BrowserModule,

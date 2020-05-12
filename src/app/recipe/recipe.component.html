@@ -12,15 +12,9 @@
     <div *ngFor='let item of Recipe$.directions'>
 
 
-      <div *ngIf="item.stepNumber == 1" >
-        {{ item.instruction }}
-      </div>
-      <div *ngIf="item.stepNumber == 0" >
-        {{ item.instruction }}
-      </div>
-      <div *ngIf="item.stepNumber == 2" >
-        {{ item.instruction }}
-      </div>
+     
+       <p> {{ item.instruction }}</p>
+  
       <!-- {{ item.instruction }} -->
     </div>
  

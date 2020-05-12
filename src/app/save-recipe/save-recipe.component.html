@@ -1,0 +1,65 @@
+<!-- <form [formGroup]="saveRecipeForm" (ngSubmit)="onSubmit(saveRecipeForm.value)">
+  <input type="text" id="Name" formControlName="Name" placeholder="Name" aria-label="Name" ngModel><br/>
+  <div>
+    <h4>Ingredients</h4>
+    <button class="btn btn-default" type="button" (click)="onIngredient()">Add Ingredient</button>
+  </div>
+  
+  
+  
+  <input type="text" id="Ingredients" formControlName="Ingredients" placeholder="Ingredients" aria-label="Ingredients" ngModel><br/>
+  <input type="text" id="Directions" formControlName="Directions" placeholder="Directions" aria-label="Directions" ngModel><br/>
+  <select ngModel name="selectedName">
+  <option value="dinner">Dinner</option>
+  <option value="drink">Drinks</option>
+
+  </select><br/>
+  <input type = "submit">
+</form> -->
+
+<div class="row">
+  <div class="col-xs-12">
+    <form>
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-success">Save</button>
+          <button type="button" class="btn btn-danger">Cancel</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input 
+              type="text"
+              id="name"
+              class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-8">
+                <input 
+                type="text"
+                class="form-control">
+              </div>
+
+              <div class="col-xs-2">
+                <input 
+                type="number"
+                class="form-control">
+              </div>
+
+              <div class="col-xs-2">
+                <button class="btn btn-danger">X</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
