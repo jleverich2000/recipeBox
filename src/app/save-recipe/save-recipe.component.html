@@ -1,33 +1,11 @@
-<!-- <form [formGroup]="saveRecipeForm" (ngSubmit)="onSubmit(saveRecipeForm.value)">
-  <input type="text" id="Name" formControlName="Name" placeholder="Name" aria-label="Name" ngModel><br/>
-  <div>
-    <h4>Ingredients</h4>
-    <button class="btn btn-default" type="button" (click)="onIngredient()">Add Ingredient</button>
-  </div>
-  
-  
-  
-  <input type="text" id="Ingredients" formControlName="Ingredients" placeholder="Ingredients" aria-label="Ingredients" ngModel><br/>
-  <input type="text" id="Directions" formControlName="Directions" placeholder="Directions" aria-label="Directions" ngModel><br/>
-  <select ngModel name="selectedName">
-  <option value="dinner">Dinner</option>
-  <option value="drink">Drinks</option>
-
-  </select><br/>
-  <input type = "submit">
-</form> -->
-
-  <div class="row">
-    <div class="col-xs-12">
+ <div class="row">
+    <div class="col-lg-12">
       <form [formGroup]="saveRecipeForm" (ngSubmit)="onSubmit(saveRecipeForm)">
         <div class="row">
-          <div class="col-xs-12">
-            <button type="submit" class="btn btn-success">Save</button>
-            <button type="button" class="btn btn-danger">Cancel</button>
-          </div>
+
         </div>
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col-lg-12">
             <div class="form-group">
               <label for="recipeName">Recipe Name</label>
               <input 
@@ -40,79 +18,62 @@
         </div>
 
         <div class="row">
+          <h4>Ingredients</h4>
 
-          <div class="col-xs-12" formArrayName="ingredients">
+          <div class="col-lg-12" formArrayName="ingredients">
 
               <div class="row"  
-              *ngFor="let ingredientCtrl of controls; let i = index"
-              [formGroupName]="i"
+              *ngFor="let ingredientCtrl of controls; let indexofIngredient = index"
+              [formGroupName]="indexofIngredient"
               style="margin-top: 10px;">
 
-                <div class="col-xs-8">
+                <div class="col-sm-4">
                   <input 
                     type="text"
                     class="form-control"
                     formControlName="name">
                 </div>
 
-                <div class="col-xs-2">
+                
+                 <label for="quantity">Quantity</label>
+
+                 <div class="col-sm-2">
                   <input 
-                    type="number"
-                    class="form-control"
-                    formControlName="amount">
-                </div>
-
-                <div class="col-xs-2">
-                  <button class="btn btn-danger">X</button>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-xs-12">
-                <button type="button"
-                class="btn btn-success" 
-                (click)="onAddIngredient()">Add Ingredient</button>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-
-
-        <div class="row">
-
-          <div class="col-xs-12" formArrayName="directions">
-
-              <div class="row"  
-              *ngFor="let directionCtrl of stepControls; let n = index"
-              [formGroupName]="n"
-              style="margin-top: 10px;">
-
-                <div class="col-xs-8">
-                  <input 
+                  name="quantity"
                     type="text"
                     class="form-control"
-                    formControlName="step">
+                    formControlName="quantity">
                 </div>
-
-                <div class="col-xs-2">
+                <div class="col-sm-4">
+                  <label for="selectedUnitType">Unit Type</label>
+                  <select  
+                    name="selectedUnitType"
+                    formControlName="unitType">
+                      <option value="cups">cups</option>
+                      <option value="teaspoons">teaspoons</option>
+                      <option value="tablespoons">tablespoons</option>
+                      <option value="pounds">pounds</option>
+                      <option value="ounces">ounces</option>
+                      <option value="count">count</option>
+                  </select>               
+                 </div>
+                 <div>
                   <input 
-                    type="number"
+                    type="hidden"
                     class="form-control"
-                    formControlName="order">
+                    formControlName="orderOf"
+                  >
                 </div>
-
-                <div class="col-xs-2">
+                <div class="col-sm-1">
                   <button class="btn btn-danger">X</button>
                 </div>
             </div>
             <hr>
             <div class="row">
-              <div class="col-xs-12">
+              <div class="col-lg-12">
                 <button type="button"
                 class="btn btn-success" 
-                (click)="onAddSteps()">Add Step</button>
+                (click)="onAddIngredient(controls.length)">Add Ingredient</button>
               </div>
             </div>
           </div>
@@ -122,8 +83,51 @@
 
 
           <div class="row">
+            <h4>Directions</h4>
 
-            <div class="col-xs-4">
+            <div class="col-lg-12" formArrayName="directions">
+
+                <div class="row"  
+
+                
+                *ngFor="let directionCtrl of stepControls; let indexofelement = index "
+                  [formGroupName]="indexofelement"
+                style="margin-top: 10px;">
+
+                  <div class="col-lg-10">
+                    <textarea 
+                      type="text"
+                      rows="6"
+                      class="form-control"
+                      formControlName="Instruction"></textarea>
+                  </div>
+
+                  <div>
+                    <input 
+                      type="hidden"
+                      class="form-control"
+                      formControlName="StepNumber"
+                    >
+                  </div>
+
+                  <div class="col-lg-2">
+                    <button class="btn btn-danger">X</button>
+                  </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-lg-12">
+                  <button type="button"
+                  class="btn btn-success" 
+                  (click)="onAddSteps(stepControls.length)">Add Step</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+
+          <div class="row">
+            <div class="col-lg-4">
               <label for="selectedCategory">Category</label>
 
               <select  
@@ -132,8 +136,15 @@
                   <option value="dinner">Dinner</option>
                   <option value="drink">Drinks</option>
               </select>
+              
+             </div>
+        
+           </div>
+          <hr>
+           <div class="col-lg-12">
+            <button type="submit" class="btn btn-success">Save</button>
+            <button type="button" class="btn btn-danger">Cancel</button>
           </div>
-        </div>
       </form>
 
     </div>

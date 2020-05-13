@@ -8,6 +8,7 @@ import { FormGroup, FormControl, FormArray } from '@angular/forms';
 })
 export class SaveRecipeComponent implements OnInit {
   saveRecipeForm: FormGroup;
+  indexOfElement: number;
   constructor() { }
 
   ngOnInit() {
@@ -18,21 +19,24 @@ export class SaveRecipeComponent implements OnInit {
     console.log(this.saveRecipeForm)
   }
 
-  onAddIngredient() {
+  onAddIngredient( indexofIngredient: number) {
     (<FormArray>this.saveRecipeForm.get('ingredients')).push(
       new FormGroup({
         'name': new FormControl(),
-        'amount': new FormControl()
+        'unitType': new FormControl(),
+        'quantity': new FormControl(),
+        'orderOf': new FormControl((indexofIngredient? indexofIngredient:0))
       })
     );
   }
 
-  onAddSteps() {
+  onAddSteps( indexofelement: number) {
     (<FormArray>this.saveRecipeForm.get('directions')).push(
       new FormGroup({
-        'step': new FormControl(),
-        'order': new FormControl()
+        'Instruction': new FormControl(),
+        'StepNumber': new FormControl((indexofelement? indexofelement:0))
       })
+      
     );
 
 }
