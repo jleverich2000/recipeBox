@@ -5,7 +5,6 @@ import { SearchService } from '../search.service';
 import { FormBuilder } from '@angular/forms';
 import { RecipeListItem } from '../recipe.model';
 
-
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',

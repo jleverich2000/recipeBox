@@ -1,15 +1,15 @@
-  <h1>{{Recipe$.name}}</h1>
+  <h1>{{Recipe$?.name}}</h1>
 
     <h2>Ingredients</h2>
 
-    <div *ngFor='let item of Recipe$.ingredients'>
+    <div *ngFor='let item of Recipe$?.ingredients'>
       {{ item.quantity }}{{ item.unitType }} - {{ item.name }}
     
     </div>
 
     <br>
     <h2>Directions</h2>
-    <div *ngFor='let item of Recipe$.directions'>
+    <div *ngFor='let item of Recipe$?.directions'>
 
 
      

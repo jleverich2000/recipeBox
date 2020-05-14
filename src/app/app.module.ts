@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { SearchService } from './search.service';
+import { SaveRecipeService } from './save-recipe.service';
 import { RecipeComponent } from './recipe/recipe.component';
 import { appRoutes } from './routes';
 import { SaveRecipeComponent } from './save-recipe/save-recipe.component';
@@ -17,7 +18,7 @@ import { SaveRecipeComponent } from './save-recipe/save-recipe.component';
     AppComponent,
     SearchComponent,
     RecipeComponent,
-    SaveRecipeComponent,
+    SaveRecipeComponent
   ],
   imports: [
     BrowserModule,

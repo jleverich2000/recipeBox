@@ -1,22 +1,31 @@
 import { Component, OnInit } from '@angular/core'; 
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
-
+import { SaveRecipeService } from '../save-recipe.service';
 @Component({
   selector: 'app-save-recipe',
   templateUrl: './save-recipe.component.html',
-  styleUrls: ['./save-recipe.component.css']
+  styleUrls: ['./save-recipe.component.css'],
+  providers: [SaveRecipeService]
 })
 export class SaveRecipeComponent implements OnInit {
   saveRecipeForm: FormGroup;
   indexOfElement: number;
-  constructor() { }
+  constructor(
+    private SaveRecipeService: SaveRecipeService
+  ) {
+
+   }
 
   ngOnInit() {
     this.initForm();
   }
 
   onSubmit(){
-    console.log(this.saveRecipeForm)
+    console.log(this.saveRecipeForm);
+    console.log("saveRecipe response");
+
+    this.SaveRecipeService.SaveRecipes(this.saveRecipeForm.value);
+
   }
 
   onAddIngredient( indexofIngredient: number) {
@@ -49,13 +58,13 @@ export class SaveRecipeComponent implements OnInit {
   }
   
   private initForm() {
-      let recipeName = "";
+      let name = "";
        let Ingredients = new FormArray([]);
        let Directions = new FormArray([]);
       let category = "";
 
       this.saveRecipeForm = new FormGroup({
-        'recipeName': new FormControl(recipeName),
+        'name': new FormControl(name),
         'ingredients': Ingredients,
         'directions' : Directions,
         'category': new FormControl(category)
