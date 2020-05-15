@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,15 +10,25 @@ import { SearchComponent } from './search/search.component';
 import { SearchService } from './search.service';
 import { SaveRecipeService } from './save-recipe.service';
 import { RecipeComponent } from './recipe/recipe.component';
-import { appRoutes } from './routes';
 import { SaveRecipeComponent } from './save-recipe/save-recipe.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { SearchFormComponent } from './search-form/search-form.component';
+
+const appRoutes: Routes = [
+  {path: '', component: SearchFormComponent},
+  {path: 'recipe/:id', component: RecipeComponent},
+  {path: 'save-recipe', component: SaveRecipeComponent},
+  {path: 'search/:searchTerm', component: SearchComponent},
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     RecipeComponent,
-    SaveRecipeComponent
+    SaveRecipeComponent,
+    SearchResultsComponent,
+    SearchFormComponent
   ],
   imports: [
     BrowserModule,

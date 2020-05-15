@@ -1,0 +1,6 @@
+<p>search-results works!</p>
+<div *ngFor='let item of RecipeListItems$' style="text-align:center">
+    <p>
+      <a [routerLink]="['/recipe',item.id]">{{item.name}}</a>
+    </p>
+  </div>

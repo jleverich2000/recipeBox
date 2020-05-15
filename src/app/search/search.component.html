@@ -1,19 +1,12 @@
 
-<form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)">
+<!-- <form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)">
   <input type="text" id="searchTerm" formControlName="searchTerm" placeholder="Search" aria-label="Search" >
   <input type = "submit">
-</form>
-<h4>I need to make a omit list here-ish </h4>
+</form> -->
+<app-search-form></app-search-form>
 
 <div *ngFor='let item of RecipeListItems$' style="text-align:center">
-
- 
   <p>
-    
-
     <a [routerLink]="['/recipe',item.id]">{{item.name}}</a>
-
-    <!-- <a [routerLink]="['/recipe',recipeId.id]" [queryParams]={recipeId:item.id}>{{item.name}}</a> -->
-
   </p>
 </div>

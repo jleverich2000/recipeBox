@@ -30,9 +30,10 @@ export class SearchService {
 
       };
 
-    public SearchRecipes(searchForm):Observable<RecipeListItem[]> {
+    public SearchRecipes(term):Observable<RecipeListItem[]> {
+      console.log("searchservice searchterm: " + term) 
      
-    return  this.http.get<RecipeListItem[]>(this.apiUrl+this.searchRoute+searchForm.searchTerm);
+    return  this.http.get<RecipeListItem[]>(this.apiUrl+this.searchRoute+term);
       }
 
       public GetRecipe(id):Observable<Recipe> {
