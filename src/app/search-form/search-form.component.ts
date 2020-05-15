@@ -22,14 +22,7 @@ export class SearchFormComponent implements OnInit {
   ngOnInit() {
   }
 
-
   onSubmit(searchTerm) {
-    console.log('SearchFormComponent searchTerm: '+ searchTerm);
     return this.router.navigate(['/search', searchTerm ]);
- 
- 
   }
-
-
-
 }

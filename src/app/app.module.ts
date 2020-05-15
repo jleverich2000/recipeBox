@@ -11,7 +11,6 @@ import { SearchService } from './search.service';
 import { SaveRecipeService } from './save-recipe.service';
 import { RecipeComponent } from './recipe/recipe.component';
 import { SaveRecipeComponent } from './save-recipe/save-recipe.component';
-import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 
 const appRoutes: Routes = [
@@ -27,7 +26,6 @@ const appRoutes: Routes = [
     SearchComponent,
     RecipeComponent,
     SaveRecipeComponent,
-    SearchResultsComponent,
     SearchFormComponent
   ],
   imports: [

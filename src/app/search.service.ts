@@ -21,7 +21,6 @@ export class SearchService {
         'Access-Control-Allow-Origin': "*",
         'Accept':'*/*',
         'Content-Type':  'application/xml',
-
       });
     
       options = {
@@ -31,7 +30,6 @@ export class SearchService {
       };
 
     public SearchRecipes(term):Observable<RecipeListItem[]> {
-      console.log("searchservice searchterm: " + term) 
      
     return  this.http.get<RecipeListItem[]>(this.apiUrl+this.searchRoute+term);
       }
@@ -40,7 +38,5 @@ export class SearchService {
      
         return  this.http.get<Recipe>(this.apiUrl+this.recipeRoute+id);
           }
-  
 
- 
 }
