@@ -49,12 +49,12 @@
                   <select  
                     name="selectedUnitType"
                     formControlName="unitType">
-                      <option value="cups">cups</option>
-                      <option value="teaspoons">teaspoons</option>
-                      <option value="tablespoons">tablespoons</option>
-                      <option value="pounds">pounds</option>
-                      <option value="ounces">ounces</option>
-                      <option value="count">count</option>
+                      <option value="cups"> cups</option>
+                      <option value="teaspoons"> teaspoons</option>
+                      <option value="tablespoons"> tablespoons</option>
+                      <option value="pounds"> pounds</option>
+                      <option value="ounces"> ounces</option>
+                      <option value="count"> count</option>
                   </select>               
                  </div>
                  <div>
@@ -65,7 +65,7 @@
                   >
                 </div>
                 <div class="col-sm-1">
-                  <button class="btn btn-danger" disabled>X</button>
+                 <button type="button" class="btn btn-danger"(click)="onRemoveIngredient(indexofIngredient)">X</button>
                 </div>
             </div>
             <hr>
@@ -110,9 +110,9 @@
                     >
                   </div>
 
-                  <div class="col-lg-2">
-                    <button class="btn btn-danger" disabled>X</button>
-                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-danger"(click)="onRemoveDirection(indexofelement)">X</button>
+                   </div>
               </div>
               <hr>
               <div class="row">

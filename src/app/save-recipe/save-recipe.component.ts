@@ -39,6 +39,15 @@ export class SaveRecipeComponent implements OnInit {
     );
   }
 
+  onRemoveIngredient( index: number) {
+      const ingredientsFormArray = this.saveRecipeForm.controls['ingredients'];
+      ingredientsFormArray.removeAt(index);
+  }
+  
+  onRemoveDirection( index: number) {
+    const ingredientsFormArray = this.saveRecipeForm.controls['directions'];
+    ingredientsFormArray.removeAt(index);
+}
   onAddSteps( indexofelement: number) {
     (<FormArray>this.saveRecipeForm.get('directions')).push(
       new FormGroup({
